@@ -1,0 +1,33 @@
+import type { Metadata } from 'next';
+import { Barlow, Inter } from 'next/font/google';
+import './globals.css';
+import { ThemeProvider } from 'next-themes';
+
+const interFont = Inter({ subsets: ['latin'] });
+const barlowFont = Barlow({
+    variable: '--font-barlow',
+    subsets: ['latin'],
+    weight: ['500', '700'],
+});
+
+export const metadata: Metadata = {
+    title: 'GoShop',
+    description:
+        'Welcome to GoShop, your ultimate destination for seamless online shopping! Discover a vast array of products from trusted sellers, all in one convenient marketplace. With GoShop, shopping is made easy, fast, and enjoyable. Find everything you need, from fashion and electronics to home essentials, and experience the joy of hassle-free online shopping. Start exploring today!',
+};
+
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body className={`${barlowFont.variable} ${interFont.className} antialiased`}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                    {children}
+                </ThemeProvider>
+            </body>
+        </html>
+    );
+}
