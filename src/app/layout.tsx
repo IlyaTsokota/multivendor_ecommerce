@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { Barlow, Inter } from 'next/font/google';
-import './globals.css';
+
 import { ThemeProvider } from 'next-themes';
+
+import { ClerkProvider } from '@clerk/nextjs';
+
+import './globals.css';
 
 const interFont = Inter({ subsets: ['latin'] });
 const barlowFont = Barlow({
@@ -22,12 +26,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
-            <body className={`${barlowFont.variable} ${interFont.className} antialiased`}>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                    {children}
-                </ThemeProvider>
-            </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en" suppressHydrationWarning>
+                <body className={`${barlowFont.variable} ${interFont.className} antialiased`}>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                        {children}
+                    </ThemeProvider>
+                </body>
+            </html>
+        </ClerkProvider>
     );
 }
