@@ -1,13 +1,26 @@
 export default function CouponIcon() {
     return (
-        <svg width={50} height={50} viewBox="0 0 512 512" style={{ color: 'currentColor' }} xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 scale-90">
+        <svg
+            width={50}
+            height={50}
+            viewBox="0 0 512 512"
+            style={{ color: 'currentColor' }}
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 scale-90"
+        >
             <defs>
                 <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#4275E4" />
                     <stop offset="100%" stopColor="#A1BCF4" />
                 </linearGradient>
             </defs>
-            <svg width="100%" height="100%" viewBox="0 0 1024 1024" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 1024 1024"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+            >
                 <g fill="currentColor">
                     <path
                         fill="url(#boxGradient)"

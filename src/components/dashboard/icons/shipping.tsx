@@ -1,13 +1,26 @@
 export default function ShippingIcon() {
     return (
-        <svg width={512} height={512} viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 scale-[200%]">
+        <svg
+            width={512}
+            height={512}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 scale-[200%]"
+        >
             <defs>
                 <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#4275E4" />
                     <stop offset="100%" stopColor="#A1BCF4" />
                 </linearGradient>
             </defs>
-            <svg width="256px" height="256px" viewBox="0 0 640 512" x={128} y={128} xmlns="http://www.w3.org/2000/svg">
+            <svg
+                width="256px"
+                height="256px"
+                viewBox="0 0 640 512"
+                x={128}
+                y={128}
+                xmlns="http://www.w3.org/2000/svg"
+            >
                 <g>
                     <path
                         fill="url(#boxGradient)"

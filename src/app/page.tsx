@@ -8,7 +8,9 @@ export default function Home() {
                 <UserButton />
                 <ThemeToggle />
             </div>
-            <h1 className="mt-10 text-3xl font-barlow text-blue-500">Welcome to the Multi-vendor E-commerce Platform!</h1>
+            <h1 className="mt-10 text-3xl font-barlow text-blue-500">
+                Welcome to the Multi-vendor E-commerce Platform!
+            </h1>
         </div>
     );
 }

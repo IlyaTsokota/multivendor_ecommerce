@@ -13,7 +13,12 @@ function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimiti
     return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
-function PopoverContent({ className, align = 'center', sideOffset = 4, ...props }: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+function PopoverContent({
+    className,
+    align = 'center',
+    sideOffset = 4,
+    ...props
+}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
     return (
         <PopoverPrimitive.Portal>
             <PopoverPrimitive.Content
@@ -35,7 +40,13 @@ function PopoverAnchor({ ...props }: React.ComponentProps<typeof PopoverPrimitiv
 }
 
 function PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
-    return <div data-slot="popover-header" className={cn('flex flex-col gap-1 text-sm', className)} {...props} />;
+    return (
+        <div
+            data-slot="popover-header"
+            className={cn('flex flex-col gap-1 text-sm', className)}
+            {...props}
+        />
+    );
 }
 
 function PopoverTitle({ className, ...props }: React.ComponentProps<'h2'>) {
@@ -43,7 +54,21 @@ function PopoverTitle({ className, ...props }: React.ComponentProps<'h2'>) {
 }
 
 function PopoverDescription({ className, ...props }: React.ComponentProps<'p'>) {
-    return <p data-slot="popover-description" className={cn('text-muted-foreground', className)} {...props} />;
+    return (
+        <p
+            data-slot="popover-description"
+            className={cn('text-muted-foreground', className)}
+            {...props}
+        />
+    );
 }
 
-export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor, PopoverHeader, PopoverTitle, PopoverDescription };
+export {
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverAnchor,
+    PopoverHeader,
+    PopoverTitle,
+    PopoverDescription,
+};

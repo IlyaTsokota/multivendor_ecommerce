@@ -1,6 +1,12 @@
 export default function SettingsIcon() {
     return (
-        <svg width={50} height={50} viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 scale-125">
+        <svg
+            width={50}
+            height={50}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 scale-125"
+        >
             <defs>
                 <linearGradient id="boxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="#4275E4" />

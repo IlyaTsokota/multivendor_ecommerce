@@ -21,7 +21,7 @@ const eslintConfig = defineConfig([
                     semi: true,
                     trailingComma: 'all',
                     bracketSpacing: true,
-                    printWidth: 200,
+                    printWidth: 100,
                     endOfLine: 'auto',
                     tabWidth: 4,
                 },

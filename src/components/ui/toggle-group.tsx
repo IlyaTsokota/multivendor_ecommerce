@@ -35,15 +35,26 @@ function ToggleGroup({
             data-size={size}
             data-spacing={spacing}
             style={{ '--gap': spacing } as React.CSSProperties}
-            className={cn('group/toggle-group flex w-fit items-center gap-[--spacing(var(--gap))] rounded-md data-[spacing=default]:data-[variant=outline]:shadow-xs', className)}
+            className={cn(
+                'group/toggle-group flex w-fit items-center gap-[--spacing(var(--gap))] rounded-md data-[spacing=default]:data-[variant=outline]:shadow-xs',
+                className,
+            )}
             {...props}
         >
-            <ToggleGroupContext.Provider value={{ variant, size, spacing }}>{children}</ToggleGroupContext.Provider>
+            <ToggleGroupContext.Provider value={{ variant, size, spacing }}>
+                {children}
+            </ToggleGroupContext.Provider>
         </ToggleGroupPrimitive.Root>
     );
 }
 
-function ToggleGroupItem({ className, children, variant, size, ...props }: React.ComponentProps<typeof ToggleGroupPrimitive.Item> & VariantProps<typeof toggleVariants>) {
+function ToggleGroupItem({
+    className,
+    children,
+    variant,
+    size,
+    ...props
+}: React.ComponentProps<typeof ToggleGroupPrimitive.Item> & VariantProps<typeof toggleVariants>) {
     const context = React.useContext(ToggleGroupContext);
 
     return (

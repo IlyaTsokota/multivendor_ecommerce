@@ -21,7 +21,11 @@ const Sidebar: FC<SidebarProps> = async ({ isAdmin }) => {
             <Logo width="100%" height="180px" />
             <span className="mt-3" />
             {user && <UserInfo user={user} />}
-            {isAdmin ? <SidebarNavAdmin menuLinks={adminDashboardSidebarOptions} /> : <SidebarNavSeller menuLinks={sellerDashboardSidebarOptions} />}
+            {isAdmin ? (
+                <SidebarNavAdmin menuLinks={adminDashboardSidebarOptions} />
+            ) : (
+                <SidebarNavSeller menuLinks={sellerDashboardSidebarOptions} />
+            )}
         </div>
     );
 };

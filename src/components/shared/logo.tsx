@@ -11,7 +11,12 @@ interface LogoProps {
 const Logo: FC<LogoProps> = ({ width, height }) => {
     return (
         <div className="z-50" style={{ width, height }}>
-            <Image src={LogoImg} alt="GoShop" className="w-full h-full object-cover overflow-visible" loading="eager" />
+            <Image
+                src={LogoImg}
+                alt="GoShop"
+                className="w-full h-full object-cover overflow-visible"
+                loading="eager"
+            />
         </div>
     );
 };
