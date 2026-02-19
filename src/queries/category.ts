@@ -79,3 +79,44 @@ export const getAllCategories: () => Promise<Category[]> = async () => {
         throw error;
     }
 };
+
+// export const getAllCategoriesForCategory = async (categoryId: string) => {
+//     const subCategories = await db.subCategory.findMany({
+//         where: {
+//             categoryId,
+//         },
+//         orderBy: {
+//             updatedAt: 'desc',
+//         },
+//     });
+//     return subCategories;
+// };
+
+export const getCategory = async (categoryId: string) => {
+    if (!categoryId) throw new Error('Please provide category ID.');
+
+    const category = await db.category.findUnique({
+        where: {
+            id: categoryId,
+        },
+    });
+    return category;
+};
+
+export const deleteCategory = async (categoryId: string) => {
+    const user = await currentUser();
+
+    if (!user) throw new Error('Unauthenticated.');
+
+    if (user.privateMetadata.role !== 'ADMIN')
+        throw new Error('Unauthorized Access: Admin Privileges Required for Entry.');
+
+    if (!categoryId) throw new Error('Please provide category ID.');
+
+    const response = await db.category.delete({
+        where: {
+            id: categoryId,
+        },
+    });
+    return response;
+};

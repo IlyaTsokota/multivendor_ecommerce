@@ -52,10 +52,8 @@ export default function DataTable<TData, TValue>({
     noHeader,
     newTabLink,
 }: DataTableProps<TData, TValue>) {
-    // Modal state
     const { setOpen } = useModal();
 
-    // React table instance
     // eslint-disable-next-line react-hooks/incompatible-library
     const table = useReactTable({
         data,
@@ -108,10 +106,8 @@ export default function DataTable<TData, TValue>({
                 </div>
             </div>
 
-            {/* Table */}
             <div className=" border bg-background rounded-lg">
                 <Table className="">
-                    {/* Table header */}
                     {!noHeader && (
                         <TableHeader>
                             {table.getHeaderGroups().map((headerGroup) => (
@@ -133,7 +129,6 @@ export default function DataTable<TData, TValue>({
                         </TableHeader>
                     )}
 
-                    {/* Table body */}
                     <TableBody>
                         {table.getRowModel().rows.length ? (
                             table.getRowModel().rows.map((row) => {
@@ -145,7 +140,7 @@ export default function DataTable<TData, TValue>({
                                         {row.getVisibleCells().map((cell) => (
                                             <TableCell
                                                 key={cell.id}
-                                                className="max-w-[400px] break-words"
+                                                className="max-w-100 wrap-break-word"
                                             >
                                                 {flexRender(
                                                     cell.column.columnDef.cell,
@@ -157,7 +152,6 @@ export default function DataTable<TData, TValue>({
                                 );
                             })
                         ) : (
-                            // No results message
                             <TableRow>
                                 <TableCell colSpan={columns.length} className="h-24 text-center">
                                     No Results.

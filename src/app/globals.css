@@ -126,3 +126,7 @@
         @apply bg-background text-foreground;
     }
 }
+
+iframe[src*="upload-widget.cloudinary.com"] {
+    pointer-events: all !important;
+}

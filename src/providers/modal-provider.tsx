@@ -1,19 +1,15 @@
 'use client';
 
-import { User } from '@/generated/prisma/client';
 import { createContext, useContext, useEffect, useState } from 'react';
 
 interface ModalProviderProps {
     children: React.ReactNode;
 }
 
-export type ModalData = {
-    user?: User;
-};
 type ModalContextType = {
-    data: ModalData;
+    data: Record<string, unknown>;
     isOpen: boolean;
-    setOpen: (modal: React.ReactNode, fetchData?: () => Promise<ModalData>) => void;
+    setOpen: (modal: React.ReactNode, fetchData?: () => Promise<Record<string, unknown>>) => void;
     setClose: () => void;
 };
 
@@ -26,7 +22,7 @@ export const ModalContext = createContext<ModalContextType>({
 
 const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [data, setData] = useState<ModalData>({});
+    const [data, setData] = useState<Record<string, unknown>>({});
     const [showingModal, setShowingModal] = useState<React.ReactNode>(null);
     const [isMounted, setIsMounted] = useState(false);
 
@@ -34,7 +30,10 @@ const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
         setIsMounted(true);
     }, []);
 
-    const setOpen = async (modal: React.ReactNode, fetchData?: () => Promise<ModalData>) => {
+    const setOpen = async (
+        modal: React.ReactNode,
+        fetchData?: () => Promise<Record<string, unknown>>,
+    ) => {
         if (modal) {
             if (fetchData) {
                 setData({ ...data, ...(await fetchData()) });
