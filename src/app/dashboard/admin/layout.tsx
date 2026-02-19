@@ -1,5 +1,6 @@
 import Header from '@/components/dashboard/header/header';
 import Sidebar from '@/components/dashboard/sidebar/sidebar';
+import { Role } from '@/generated/prisma/enums';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { FC, ReactNode } from 'react';
@@ -11,7 +12,7 @@ interface AdminDashboardLayoutProps {
 const AdminDashboardLayout: FC<AdminDashboardLayoutProps> = async ({ children }) => {
     const user = await currentUser();
 
-    if (user?.privateMetadata?.role !== 'ADMIN') {
+    if (user?.privateMetadata?.role !== Role.ADMIN) {
         redirect('/');
     }
 

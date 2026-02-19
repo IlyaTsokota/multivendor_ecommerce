@@ -8,10 +8,11 @@ export const CategoryFormSchema = z.object({
         .regex(/^[a-zA-Z0-9\s]+$/, 'Category name can only contain letters, numbers, and spaces'),
 
     image: z
-        .object({
-            url: z.string(),
-        })
-        .array()
+        .array(
+            z.object({
+                url: z.string(),
+            }),
+        )
         .length(1, 'At least one image is required'),
 
     url: z
@@ -22,5 +23,5 @@ export const CategoryFormSchema = z.object({
             message: 'Invalid relative URL',
         }),
 
-    featured: z.boolean().default(false),
+    featured: z.boolean(),
 });

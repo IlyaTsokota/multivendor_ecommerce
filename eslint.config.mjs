@@ -13,6 +13,7 @@ const eslintConfig = defineConfig([
             prettier: prettierPlugin,
         },
         rules: {
+            'react-hooks/set-state-in-effect': 'off',
             'prettier/prettier': [
                 'error',
                 {

@@ -5,7 +5,10 @@ import { ThemeProvider } from 'next-themes';
 
 import { ClerkProvider } from '@clerk/nextjs';
 
+import { Toaster } from '@/components/ui/sonner';
+
 import './globals.css';
+import ModalProvider from '@/providers/modal-provider';
 
 const interFont = Inter({ subsets: ['latin'] });
 const barlowFont = Barlow({
@@ -30,7 +33,8 @@ export default function RootLayout({
             <html lang="en" suppressHydrationWarning>
                 <body className={`${barlowFont.variable} ${interFont.className} antialiased`}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-                        {children}
+                        <ModalProvider>{children}</ModalProvider>
+                        <Toaster />
                     </ThemeProvider>
                 </body>
             </html>
